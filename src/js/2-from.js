@@ -3,7 +3,7 @@ const form = document.querySelector('form');
 const emailField = document.querySelector('input');
 const messageField = document.querySelector('textarea');
 
-let toSave = localStorage.getItem('form');
+let toSave = localStorage.getItem('feedback-form-state');
 if (toSave) {
   toSave = JSON.parse(toSave);
   emailField.value = toSave.email;
@@ -25,7 +25,7 @@ form.addEventListener('input', e => {
     toSave.message = value;
   }
 
-  localStorage.setItem('form', JSON.stringify(toSave));
+  localStorage.setItem('feedback-form-state', JSON.stringify(toSave));
 });
 
 form.addEventListener('submit', event => {
@@ -37,5 +37,5 @@ form.addEventListener('submit', event => {
     email: '',
     message: '',
   };
-  localStorage.removeItem('form');
+  localStorage.removeItem('feedback-form-state');
 });
